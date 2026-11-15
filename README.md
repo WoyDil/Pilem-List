@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Pilem List – Website Film (PHP + SQLite)
 
 Website bergaya Netflix dengan halaman Home, Rating, Genre, detail film
@@ -54,4 +53,3 @@ Jika di-hosting publik, pakai HTTPS dan blok akses web ke folder `data/`.
 Project akhir Pemrograman Web Anggota :  
 MUHAMMAD FADHIL ARRASYID  
 MUHAMMAD FARID ALFARIDZI
->>>>>>> e09764b5f457b2be37a2d5f95b4e7e202244fffa
