@@ -45,7 +45,7 @@ if ((int)$pdo->query("SELECT COUNT(*) FROM users")->fetchColumn() === 0) {
 // Data film contoh
 if ((int)$pdo->query("SELECT COUNT(*) FROM films")->fetchColumn() === 0) {
     $seed = [
-        ['Judul Film 1', 'Aksi', 9.1, 2024, '#9b1c2c'],
+        ['Spiderman apalah itu', 'Aksi', 9.1, 2024, '#9b1c2c'],
         ['Judul Film 2', 'Drama', 8.7, 2023, '#1f5a85'],
         ['Judul Film 3', 'Komedi', 8.2, 2025, '#a8650f'],
         ['Judul Film 4', 'Horor', 7.9, 2022, '#4b2f78'],

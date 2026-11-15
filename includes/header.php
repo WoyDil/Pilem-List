@@ -15,13 +15,21 @@ $title = $title ?? 'PILEM LIST';
 <body>
 <header>
   <button class="burger" id="bb" aria-label="Buka menu" aria-expanded="false"><i></i><i></i><i></i></button>
-  <a class="logo" href="<?= $base ?>index.php">PILEM LIST</a>
+<a class="logo" href="<?= $base ?>index.php">
+  <img src="<?= $base ?>assets/logo.png" alt="PILEM LIST" style="height: 45px; width: auto;">
+</a>
   <nav class="tnav" aria-label="Menu utama">
     <a href="<?= $base ?>index.php" class="<?= $page === 'home' ? 'on' : '' ?>">Home</a>
     <a href="<?= $base ?>rating.php" class="<?= $page === 'rating' ? 'on' : '' ?>">Rating</a>
     <a href="<?= $base ?>genre.php" class="<?= $page === 'genre' ? 'on' : '' ?>">Genre</a>
   </nav>
   <div class="spacer"></div>
+   <form class="search-form" action="<?= $base ?>search.php" method="GET">
+    <input type="text" name="q" placeholder="Cari film..." value="<?= isset($_GET['q']) ? e($_GET['q']) : '' ?>">
+    <button type="submit" aria-label="Cari">
+      <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    </button>
+  </form>
   <?php if (is_admin()): ?>
     <a class="tbtn" href="<?= $base ?>admin/index.php">Admin</a>
   <?php elseif (is_logged_in()): ?>

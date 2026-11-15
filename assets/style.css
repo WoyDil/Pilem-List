@@ -1,92 +1,680 @@
-:root{--bg:#141414;--sf:#222;--tx:#fff;--mu:#b3b3b3;--ac:#e50914;--ln:#333;color-scheme:dark}
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400;600&display=swap');
+
+:root{
+  --bg:#0f172a;      /* Biru dongker gelap */
+  --sf:#1e293b;      /* Warna kartu */
+  --tx:#f8fafc;      /* Teks putih */
+  --mu:#94a3b8;      /* Teks abu-abu */
+  --ac:#3b82f6;      /* Biru aksen */
+  --ln:#334155;      /* Garis pembatas */
+  color-scheme: dark; 
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 "Helvetica Neue",Arial,sans-serif}
+body {
+  margin: 0;
+  background: var(--bg); 
+  color: var(--tx);
+  font: 16px/1.6 "Lora", serif;
+}
 a{color:inherit;text-decoration:none}
 h1,h2,h3{margin:0}
-h2{font-size:1.25rem;margin-bottom:10px}
+h2{font-size:1.25rem;margin-bottom:10px;color:var(--tx);font-family: "Cinzel", serif;}
 .mu{color:var(--mu)}.small{font-size:.85rem}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #fff;outline-offset:2px}
 
-header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:14px;padding:14px 4%;background:linear-gradient(#000d,#0000)}
-.logo{font:900 1.6rem Impact,"Arial Black",sans-serif;color:var(--ac);letter-spacing:1px;white-space:nowrap;text-transform:uppercase}
+/* Navbar */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  display:flex;align-items:center;gap:14px;padding:14px 4%;
+  background:rgba(15, 23, 42, 0.85); 
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ln);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 10;
+  margin-right: 20px;
+}
+.logo img { display: block; object-fit: contain; }
 .spacer{flex:1}
 .burger{background:none;border:0;padding:8px;cursor:pointer;display:grid;gap:5px}
 .burger i{display:block;width:26px;height:3px;background:#fff;border-radius:2px}
-.tnav{display:flex;gap:4px;margin-left:8px}
-.tnav a{padding:6px 10px;color:#e5e5e5;font-size:.9rem;border-radius:4px}
-.tnav a:hover,.tnav a.on{color:#fff}.tnav a.on{font-weight:700}
-.tbtn{background:var(--ac);padding:6px 16px;border-radius:4px;font-weight:700;font-size:.9rem}
-
-.scrim{position:fixed;inset:0;background:#000a;z-index:30;opacity:0;pointer-events:none;transition:opacity .2s}
-.drawer{position:fixed;top:0;bottom:0;left:0;width:260px;max-width:80%;background:#0b0b0b;z-index:40;transform:translateX(-100%);transition:transform .25s;padding:20px 0;overflow-y:auto}
-body.open .scrim{opacity:1;pointer-events:auto}body.open .drawer{transform:none}
-.drawer .logo{display:block;padding:0 24px 16px}
-.drawer a:not(.logo){display:block;padding:12px 24px;color:var(--mu)}
-.drawer a:not(.logo):hover,.drawer a.on{color:#fff;background:var(--sf)}
-.drawer hr{border:0;border-top:1px solid var(--ln);margin:8px 0}
-
-.hero{min-height:70vh;display:flex;align-items:flex-end;padding:0 4% 56px;background:linear-gradient(0deg,var(--bg) 4%,#0000 60%),linear-gradient(90deg,#000c,#0000 70%),var(--hc,#7a0f1a)}
-.hero div{max-width:520px}
-.hero h1{font:900 clamp(2rem,7vw,3.6rem)/1.05 Impact,"Arial Black",sans-serif;margin-bottom:10px}
-.hero p{color:#ddd;margin:0 0 18px}
-.btn{display:inline-block;padding:10px 24px;border-radius:4px;font:700 1rem Arial,sans-serif;background:#fff;color:#000;border:0;cursor:pointer;margin-right:8px}
-.btn.g{background:#6d6d6eb3;color:#fff}
-.star{color:#46d369;font-weight:700}
-
-.rowt{padding:0 4%;margin-top:-20px;position:relative}
-.sc{display:flex;gap:8px;overflow-x:auto;padding:4px 0 24px;scrollbar-width:none}
-.sc::-webkit-scrollbar{display:none}
-.tile{flex:0 0 150px;border-radius:4px;overflow:hidden;background:var(--sf);transition:transform .15s}
-.tile:hover{transform:scale(1.06)}
-.poster{aspect-ratio:2/3;display:grid;place-items:center;font:900 3rem Impact,"Arial Black",sans-serif;color:#ffffffd9;overflow:hidden}
-.poster img{width:100%;height:100%;object-fit:cover}
-.tile small{display:block;padding:6px 8px;color:var(--mu)}
-
-.page{padding:90px 4% 60px;max-width:1000px;margin:auto}
-.page.wide{max-width:1100px}
-.page h1{font:900 2rem Impact,"Arial Black",sans-serif;margin-bottom:16px}
-.rk{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--ln)}
-.rk .n{font:900 2rem Impact,sans-serif;color:#555;width:36px}
-.rk .t{flex:1}.rk .t small{display:block;color:var(--mu)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.chip{border:1px solid #666;border-radius:99px;padding:6px 16px}
-.chip.on{background:#fff;color:#000}
-.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
-.det{display:grid;grid-template-columns:260px 1fr;gap:30px}
-.det .poster{border-radius:6px}
-.det h1{font-size:2.4rem}
-.meta{color:var(--mu);margin-bottom:20px}.meta .star{font-size:1.1rem;margin-right:10px}
-.det h3{margin:22px 0 6px;font-size:1.1rem}
-.cast{display:flex;flex-wrap:wrap;gap:8px}
-.cast span{background:var(--sf);padding:6px 14px;border-radius:4px}
-
-.box{max-width:380px;margin:110px auto 60px;padding:32px;background:#000b;border-radius:8px}
-.box h1{font:900 1.8rem Impact,"Arial Black",sans-serif;margin-bottom:16px}
-label{display:block;margin-bottom:14px;color:var(--mu);font-size:.9rem}
-input,textarea{display:block;width:100%;margin-top:6px;padding:10px 12px;background:#333;color:#fff;border:1px solid #444;border-radius:4px;font:inherit}
-input[type=color]{height:42px;padding:2px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.alert{padding:10px 14px;border-radius:4px;margin-bottom:14px}
-.alert.ok{background:#12391f;color:#7ee29a}.alert.err{background:#4a1418;color:#ff9aa2}
-
-.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
-.bar h1{margin:0}
-.search{display:flex;gap:8px;margin-bottom:16px}.search input{margin:0;max-width:320px}
-.tw{overflow-x:auto}
-table{width:100%;border-collapse:collapse}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--ln);white-space:nowrap}
-th{color:var(--mu);font-weight:600;font-size:.85rem}
-.act{display:flex;gap:6px;align-items:center}.act form{margin:0}
-.sm{display:inline-block;padding:5px 12px;border-radius:4px;background:#333;color:#fff;border:0;font:inherit;font-size:.85rem;cursor:pointer}
-.sm.danger{background:#7a1d24}
-footer{padding:30px;text-align:center;color:#777;font-size:.85rem}
-
-@media(max-width:700px){
- header{gap:6px}.logo{font-size:1.15rem}.tnav{margin-left:0}.tnav a{padding:6px;font-size:.8rem}.tbtn{padding:5px 10px;font-size:.8rem}
- .det,.two{grid-template-columns:1fr}.det .poster{max-width:220px}.tile{flex-basis:120px}.hero{min-height:60vh}
+.tnav{display:flex;gap:4px;margin-left:20px; position: relative; z-index: 20;}
+.tnav a{
+  padding:8px 12px;
+  color:var(--mu) !important; 
+  font-size:.95rem;
+  font-weight:600;
+  border-radius:6px;
+  text-decoration:none;
+  transition:0.2s;
+}
+.tnav a:hover{ color:var(--tx) !important; background:#334155; }
+.tnav a.on {
+  color: #ffffff !important; 
+  background: rgba(255, 255, 255, 0.1) !important; 
+  border-bottom: 2px solid #f1c40f; 
+  border-radius: 0 !important;
 }
 
-.tuser{color:#e5e5e5;font-size:.9rem}
-.lnk{color:#fff;text-decoration:underline}
-@media(max-width:700px){.tuser{display:none}}
-.toast{position:relative;z-index:5;margin:76px 4% -60px}
+/* Tombol Login */
+.tbtn {
+  background-color: transparent !important;
+  background-image: none !important; 
+  border: 2px solid #f1c40f !important; 
+  border-radius: 4px !important; 
+  padding: 8px 20px;
+  font-weight: 600;
+  font-size: .9rem;
+  color: #f1c40f !important;
+  font-family: "Cinzel", serif;
+  transition: 0.2s;
+}
+.tbtn:hover { 
+  background-color: #f1c40f !important; 
+  color: #000 !important; 
+}
+
+/* --- HERO SECTION --- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: #000 !important; 
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-end; /* Teks di bawah */
+  padding: 100px 4% 60px;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100vh;
+  min-width: 177.77vh; 
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none; 
+  opacity: 0.4;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0f172a 0%, rgba(15,23,42,0.4) 50%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; 
+  max-width: 600px; 
+  color: #ffffff; 
+}
+
+.hero h1 {
+  font: 700 clamp(2rem, 5vw, 3.5rem)/1.2 "Cinzel", serif;
+  margin-bottom: 16px;
+  color: #ffffff;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+}
+.hero p { color: #cbd5e1; margin: 0 0 20px; font-size: 1.1rem;}
+.star{color:#f59e0b;font-weight:700}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Desain Tombol (Lihat Detail & Rating) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px !important;
+  background-color: #f1c40f !important; 
+  background-image: none !important; 
+  border-radius: 4px !important;
+  border: none !important;
+  color: #000000 !important; 
+  font-family: "Inter", sans-serif; 
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: none; 
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: 0.2s;
+}
+.btn:hover { 
+  background-color: #d4ac0d !important; 
+}
+.btn.g {
+  background-color: rgba(0, 0, 0, 0.5) !important; 
+  color: #f1c40f !important; 
+  border: 2px solid #f1c40f !important; 
+}
+.btn.g:hover {
+  background-color: #f1c40f !important;
+  color: #000 !important;
+}
+
+/* --- KARTU FILM --- */
+.rowt{padding:0 4%; margin-top: 30px; position:relative}
+.sc{display:flex;gap:12px;overflow-x:auto;padding:4px 0 24px;scrollbar-width:none}
+.sc::-webkit-scrollbar{display:none}
+.tile{flex:0 0 150px;border-radius:12px;overflow:hidden;background:var(--sf);box-shadow: 0 4px 12px rgba(0,0,0,0.3);transition: transform 0.2s, box-shadow 0.2s;}
+.tile:hover{transform: translateY(-6px);box-shadow: 0 8px 20px rgba(0,0,0,0.5);}
+
+.poster {
+  aspect-ratio: 2/3;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-color: #0b1120 !important; 
+  background-image: url('../assets/asset_10.png') !important;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 12px; 
+}
+.poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tile small{display:block;padding:10px;color:var(--tx) !important;font-weight:500;text-decoration:none !important;font-size:0.85rem;}
+.tile a {text-decoration: none !important;color: inherit;}
+
+/* Judul dengan Garis Emas */
+.judul-bergaris {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.judul-bergaris::after {
+  content: "";
+  flex-grow: 1;
+  height: 15px;
+  background-image: url('../assets/asset_14.png');
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+/* Form & Lainnya */
+.box{max-width:380px;margin:110px auto 60px;padding:32px;background:var(--sf);border-radius:8px;border:1px solid var(--ln);}
+label{display:block;margin-bottom:14px;color:var(--mu);font-size:.9rem}
+input,textarea{display:block;width:100%;margin-top:6px;padding:10px 12px;background:#0f172a;color:#fff;border:1px solid #334155;border-radius:4px;font:inherit}
+.alert{padding:10px 14px;border-radius:4px;margin-bottom:14px}
+.alert.ok{background:#064e3b;color:#6ee7b7}.alert.err{background:#7f1d1d;color:#fca5a5}
+footer{padding:40px;text-align:center;color:var(--mu);font-size:.85rem;border-top:1px solid var(--ln);margin-top:40px;}
+
+/* Drawer (Menu Samping) */
+.scrim { position: fixed; inset: 0; background: #000a; z-index: 30; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.drawer { position: fixed; top: 0; bottom: 0; left: 0; width: 260px; max-width: 80%; background: var(--bg); z-index: 40; transform: translateX(-100%); transition: transform .25s; padding: 20px 0; overflow-y: auto; }
+body.open .scrim { opacity: 1; pointer-events: auto; }
+body.open .drawer { transform: none; }
+.drawer a:not(.logo) { display: block; padding: 14px 24px; color: var(--mu); text-decoration: none; transition: 0.2s; cursor: pointer; position: relative; z-index: 50; }
+.drawer .logo { display: block; padding: 0 24px 20px 24px; margin-bottom: 10px; border-bottom: 1px solid var(--ln); }
+
+/* Responsif Mobile */
+@media(max-width:700px){
+ header{gap:6px}.logo{font-size:1.15rem}.tnav{margin-left:0}.tnav a{padding:6px;font-size:.8rem}.tbtn{padding:5px 10px;font-size:.8rem}
+ .tile{flex-basis:120px}.hero{min-height:60vh; padding-top:80px;}
+}
+.page {
+  padding-top: 120px !important; 
+  padding-bottom: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+.page h1 {
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  color: #f1c40f;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* 2. Tampilan Daftar Rating (Halaman rating.php) */
+.rk {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 10px;
+  border-bottom: 1px solid var(--ln);
+  text-decoration: none;
+  color: var(--tx);
+  transition: 0.2s;
+}
+.rk:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+.rk .n {
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  color: #475569;
+  width: 50px;
+  text-align: center;
+}
+.rk .t {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.rk .t small {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--mu);
+  font-weight: 400;
+  margin-top: 4px;
+}
+.rk .star {
+  color: #f59e0b;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* 3. Tombol Filter Genre / Chips (Halaman genre.php) */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.chip {
+  border: 1px solid var(--mu);
+  border-radius: 99px;
+  padding: 8px 20px;
+  color: var(--tx);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+.chip:hover {
+  border-color: #f1c40f;
+  color: #f1c40f;
+}
+.chip.on {
+  background: #f1c40f;
+  color: #000;
+  border-color: #f1c40f;
+  font-weight: bold;
+}
+
+/* 4. Grid Film di Halaman Genre */
+.gr {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+.gr .tile {
+  width: 100%;
+}
+.det {
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Kiri 300px, Kanan sisa layar */
+  gap: 40px;
+  padding-top: 120px; /* Jarak dari navbar */
+  padding-bottom: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 4%;
+  padding-right: 4%;
+  align-items: start;
+}
+
+/* 2. Poster di Kiri (Pakai Bingkai Emas) */
+.det .poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background-color: #0b1120 !important;
+  background-image: url('../assets/asset_10.png') !important;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.det .poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 3. Teks di Kanan */
+.det-info h1 {
+  font-family: "Cinzel", serif;
+  font-size: 3rem;
+  color: #f1c40f; /* Emas */
+  margin-bottom: 10px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.det-info .meta {
+  font-size: 1.1rem;
+  color: var(--mu);
+  margin-bottom: 25px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.det-info .meta .star {
+  color: #f59e0b;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.det-info h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.3rem;
+  color: #f1c40f;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--ln);
+  padding-bottom: 5px;
+}
+
+.det-info p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+}
+
+/* 4. List Pemeran */
+.cast {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.cast span {
+  background: var(--sf);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  border: 1px solid var(--ln);
+}
+
+/* Responsif HP (Kembali ke 1 Kolom) */
+@media (max-width: 768px) {
+  .det {
+    grid-template-columns: 1fr;
+    padding-top: 100px;
+  }
+  .det .poster {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  .det-info h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .det-info .meta {
+    justify-content: center;
+  }
+}
+.det-container {
+  padding-top: 120px; /* Jarak dari navbar fixed */
+  padding-bottom: 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+/* Grid 2 Kolom */
+.det {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* Kiri 320px, Kanan sisa layar */
+  gap: 50px;
+  align-items: start;
+}
+
+/* Poster di Kiri */
+.det .poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background-color: #0b1120 !important; /* Warna dasar gelap */
+  background-image: url('../assets/asset_10.png') !important; /* Bingkai Emas */
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.det .poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Teks di Kanan */
+.det-info h1 {
+  font-family: "Cinzel", serif;
+  font-size: 3.5rem;
+  color: #f1c40f; /* Emas */
+  margin-bottom: 10px;
+  line-height: 1.1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.det-info .meta {
+  font-size: 1.1rem;
+  color: var(--mu);
+  margin-bottom: 30px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.det-info .meta .star {
+  color: #f59e0b;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.det-info h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.4rem;
+  color: #f1c40f;
+  margin-top: 35px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--ln);
+  padding-bottom: 8px;
+}
+
+.det-info p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+}
+
+/* List Pemeran */
+.cast {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.cast span {
+  background: var(--sf);
+  padding: 8px 18px;
+  border-radius: 50px; /* Bentuk pil */
+  font-size: 0.9rem;
+  border: 1px solid var(--ln);
+  color: var(--tx);
+}
+
+/* Responsif untuk HP (Kembali ke 1 Kolom) */
+@media (max-width: 768px) {
+  .det {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .det .poster {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  .det-info h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .det-info .meta {
+    justify-content: center;
+  }
+}
+/*tambahan sementara */
+body {
+  /* Pastikan body punya background gambar yang digelapkan */
+  background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
+              url('../assets/bg-login.jpg') no-repeat center center fixed !important;
+  background-size: cover !important;
+}
+
+/* 2. Kotak Form Gaya Kaca (Glassmorphism) */
+.box {
+  background: rgba(30, 41, 59, 0.6) !important; /* Abu-abu biru transparan */
+  backdrop-filter: blur(12px); /* Efek kaca blur */
+  -webkit-backdrop-filter: blur(12px); /* Buat Safari */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Garis tepi tipis */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important; /* Bayangan tebal */
+  border-radius: 12px !important;
+  padding: 40px !important;
+  margin-top: 120px !important; /* Jarak dari navbar */
+  max-width: 420px !important;
+  position: relative;
+  z-index: 10;
+}
+
+/* 3. Judul di Form */
+.box h1 {
+  font-family: "Cinzel", serif;
+  color: #f1c40f; /* Emas */
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* 4. Input Field */
+.box input {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  padding: 12px 15px !important;
+  font-size: 1rem !important;
+}
+.box input:focus {
+  border-color: #f1c40f !important; /* Jadi emas saat diklik */
+  outline: none !important;
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.3) !important;
+}
+
+/* 5. Tombol Masuk / Daftar */
+.box button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px !important;
+  font-size: 1.1rem !important;
+  border-radius: 6px !important;
+  background-color: #f1c40f !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  border: none !important;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.box button:hover {
+  background-color: #d4ac0d !important;
+  transform: translateY(-2px);
+}
+
+/* 6. Teks Link (Daftar / Login di bawah) */
+.box p, .box .lnk {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--mu);
+}
+.box .lnk {
+  color: #f1c40f;
+  font-weight: 600;
+}
+.box .lnk:hover {
+  text-decoration: underline;
+}
+/* --- STYLING FORM PENCARIAN (NAVBAR) --- */
+.search-form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05); /* Transparan gelap */
+  border: 1px solid var(--ln);
+  border-radius: 50px; /* Bentuk pil/kapsul */
+  padding: 5px 15px;
+  margin-right: 20px; /* Jarak dengan tombol Login */
+  transition: 0.3s;
+  width: 250px; /* Lebar default */
+}
+
+.search-form:focus-within {
+  border-color: #f1c40f; /* Jadi emas saat diklik */
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.2);
+}
+
+.search-form input {
+  background: transparent !important;
+  border: none !important;
+  color: #fff !important;
+  font-size: 0.9rem !important;
+  padding: 5px !important;
+  margin: 0 !important;
+  width: 100%;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.search-form input::placeholder {
+  color: var(--mu);
+}
+
+.search-form button {
+  background: transparent;
+  border: none;
+  color: var(--mu);
+  cursor: pointer;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.search-form button:hover {
+  color: #f1c40f;
+}
+
+/* Responsif: Sembunyikan form cari di layar HP kecil agar tidak sempit */
+@media (max-width: 850px) {
+  .search-form {
+    display: none;
+  }
+}
