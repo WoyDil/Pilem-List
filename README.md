@@ -22,8 +22,6 @@ Database SQLite dibuat otomatis di `data/pilemlist.sqlite` saat pertama dibuka.
 Tidak perlu import SQL atau setting MySQL.
 
 ## Akun
-**Admin** (bisa kelola film): `admin` / `admin123`
-
 **User**: daftar sendiri lewat halaman `register.php` (menu Daftar). User biasa hanya bisa melihat film, tidak bisa masuk ke halaman admin.
 
 Database lama otomatis dimigrasi (kolom `role` ditambahkan).
