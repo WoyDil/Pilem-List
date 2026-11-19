@@ -1,6 +1,6 @@
 # Pilem List – Website Film (PHP + SQLite)
 
-Website bergaya Netflix dengan halaman Home, Rating, Genre, detail film
+Website film dengan halaman Home, Rating, Genre, detail film
 (rating, sinopsis, pemeran), serta login dan CRUD film untuk admin.
 
 ## Cara menjalankan
