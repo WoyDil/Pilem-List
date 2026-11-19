@@ -16,6 +16,13 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS users (
     password TEXT NOT NULL,
     role TEXT NOT NULL DEFAULT 'user'
 )");
+$cols = array_column($pdo->query("PRAGMA table_info(users)")->fetchAll(), 'name');
+if (!in_array('reset_token', $cols, true)) {
+    $pdo->exec("ALTER TABLE users ADD COLUMN reset_token TEXT");
+}
+if (!in_array('reset_expires', $cols, true)) {
+    $pdo->exec("ALTER TABLE users ADD COLUMN reset_expires DATETIME");
+}
 $pdo->exec("CREATE TABLE IF NOT EXISTS films (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,

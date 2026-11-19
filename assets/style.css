@@ -678,3 +678,242 @@ body {
     display: none;
   }
 }
+/* --- STYLING DROPDOWN PROFIL --- */
+
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tombol Profil */
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--ln);
+  color: var(--tx);
+  padding: 8px 16px;
+  border-radius: 50px; /* Bentuk pil */
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: 0.2s;
+  font-family: inherit;
+}
+.profile-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #f1c40f;
+}
+.profile-btn .chevron {
+  transition: transform 0.3s;
+}
+.profile-btn.active .chevron {
+  transform: rotate(180deg); /* Panah berputar saat dibuka */
+}
+
+/* Isi Dropdown */
+.dropdown-content {
+  display: none; /* Sembunyikan secara default */
+  position: absolute;
+  right: 0;
+  top: 120%; /* Muncul di bawah tombol */
+  background: var(--sf); /* Warna kartu */
+  min-width: 200px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  border: 1px solid var(--ln);
+  border-radius: 8px;
+  z-index: 100;
+  padding: 8px 0;
+  animation: fadeIn 0.2s ease;
+}
+
+/* Class 'show' ditambahkan via JavaScript saat tombol diklik */
+.dropdown-content.show {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Link di dalam Dropdown */
+.dropdown-content a {
+  color: var(--tx);
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+.dropdown-content a:hover {
+  background: rgba(241, 196, 15, 0.1); /* Highlight emas transparan */
+  color: #f1c40f;
+  padding-left: 25px; /* Geser sedikit saat di-hover */
+}
+.dropdown-content a.logout-link {
+  color: #fca5a5; /* Warna merah muda untuk logout */
+}
+.dropdown-content a.logout-link:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* Garis pemisah */
+.dropdown-divider {
+  height: 1px;
+  background: var(--ln);
+  margin: 8px 0;
+}
+body.light-mode {
+  --bg: #f8fafc;      /* Background putih kebiruan */
+  --sf: #ffffff;      /* Kartu putih bersih */
+  --tx: #0f172a;      /* Teks jadi biru gelap/hitam */
+  --mu: #64748b;      /* Teks abu-abu */
+  --ln: #e2e8f0;      /* Garis pembatas terang */
+  color-scheme: light;
+}
+
+/* Penyesuaian khusus elemen di mode terang */
+body.light-mode header {
+  background: rgba(248, 250, 252, 0.85); /* Navbar putih transparan */
+}
+
+body.light-mode .tnav a:hover,
+body.light-mode .tnav a.on {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #0f172a !important;
+}
+
+body.light-mode .profile-btn {
+  background: rgba(0, 0, 0, 0.05);
+  color: #0f172a;
+}
+
+body.light-mode .dropdown-content a {
+  color: #0f172a;
+}
+
+body.light-mode .hero h1,
+body.light-mode .det-info h1,
+body.light-mode .page h1 {
+  color: #b45309; /* Emas agak gelap biar kebaca di background putih */
+  text-shadow: none;
+}
+
+body.light-mode .hero p,
+body.light-mode .det-info p {
+  color: #334155;
+}
+
+body.light-mode .det .poster,
+body.light-mode .poster {
+  background-color: #e2e8f0 !important; /* Warna poster dasar terang */
+}
+
+body.light-mode .box {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: #e2e8f0 !important;
+}
+
+body.light-mode .box input {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+body.light-mode {
+  --bg: #f8fafc;
+  --tx: #0f172a;
+  --ln: #e2e8f0;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* 2. Video Tetap Ada (Jangan di-display: none) */
+body.light-mode .hero-video {
+  display: block !important;
+  opacity: 0.8 !important; /* Video lebih jelas */
+}
+
+/* 3. Overlay Putih Bersih (Bukan gradasi gelap) */
+body.light-mode .hero::after {
+  background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0.4) 60%, transparent 100%) !important;
+}
+
+/* 4. TEKS HERO: Dibikin Putih + Bayangan Hitam (Biar kebaca di video terang) */
+body.light-mode .hero h1 {
+  color: #ffffff !important; 
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
+}
+body.light-mode .hero p {
+  color: #f1f5f9 !important;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
+}
+
+/* 5. Tombol Hero */
+body.light-mode .btn {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+body.light-mode .btn.g {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+/* 6. Area Film Pilihan (Bawah) Jadi Putih */
+body.light-mode main,
+body.light-mode .rowt,
+body.light-mode .sc {
+  background-color: #ffffff !important;
+}
+
+body.light-mode .judul-bergaris h2 {
+  color: #0f172a !important;
+}
+body.light-mode .judul-bergaris::after {
+  filter: invert(1) brightness(0.5);
+}
+
+/* 7. Kartu Film di Light Mode */
+body.light-mode .tile {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+body.light-mode .tile small {
+  color: #1e293b !important;
+}
+body.light-mode .poster {
+  background-color: #f1f5f9 !important;
+}
+
+/* 8. Navbar Putih */
+body.light-mode header {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+body.light-mode .tnav a { color: #475569 !important; }
+body.light-mode .tnav a.on { color: #0f172a !important; }
+body.light-mode .logo img { filter: invert(1); } /* Logo jadi hitam */
+body.light-mode .profile-btn {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+/* --- Perbaikan Halaman Pengaturan --- */
+.page h1 {
+  text-align: left;
+}
+.box label {
+  font-weight: 600;
+  margin-top: 15px;
+}
+body.light-mode .box {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+body.light-mode .box h3,
+body.light-mode .box p {
+  color: #0f172a !important;
+}

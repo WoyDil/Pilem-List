@@ -35,4 +35,7 @@ require __DIR__ . '/includes/header.php';
   </form>
   <p class="mu small">Belum punya akun? <a class="lnk" href="register.php">Daftar sebagai user</a></p>
 </div>
+<p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">
+  <a href="lupa_password.php" class="lnk" style="color: #f1c40f;">Lupa Password?</a>
+</p>
 <?php require __DIR__ . '/includes/footer.php'; ?>
